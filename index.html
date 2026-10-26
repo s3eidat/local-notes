@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; media-src 'self' data: blob:; connect-src 'self' data: blob:; worker-src 'self' blob:; manifest-src 'self'; form-action 'none'; base-uri 'none'; object-src 'none'">
+<meta name="referrer" content="no-referrer">
+<title>Local Notes — Private Notes That Stay in Your Browser | S3eidat Tools</title>
+<meta name="description" content="A fast, private notepad: multiple notes, search, pin, autosave, word count, keyboard shortcuts, export as ZIP or JSON. Notes live only in your browser. Free, no sign-up.">
+<meta property="og:title" content="Local Notes — private notes in your browser">
+<meta property="og:description" content="Notes with search, pin and autosave that never leave your device. Export as ZIP or JSON.">
+<meta property="og:image" content="screenshot.png">
+<link rel="icon" href="kit/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="kit/kit.css">
+<link rel="stylesheet" href="app.css">
+<script src="kit/kit.js"></script>
+</head>
+<body data-tool="local-notes">
+<main class="s3-main">
+  <section class="s3-hero">
+    <h1>Local Notes</h1>
+    <p>Private notes that live only in this browser. Autosaved as you type, searchable, pinnable, and exportable whenever you want a backup.</p>
+    <div class="s3-badges"><span class="chip accent"><svg class="i"><use href="#i-lock"/></svg>Stored in this browser only</span><span class="chip">Autosave</span><span class="chip">ZIP / JSON export</span></div>
+  </section>
+
+  <div class="notes">
+    <aside class="card side">
+      <div class="row">
+        <label class="grow search"><span class="sr">Search notes</span><input class="input" id="q" type="search" placeholder="Search notes  (Ctrl+K)" dir="auto"></label>
+        <button class="btn primary icon" id="new" title="New note (Alt+N)" aria-label="New note"><svg class="i"><use href="#i-plus"/></svg></button>
+      </div>
+      <ul class="list" id="list" aria-label="Notes"></ul>
+      <div class="row side-foot">
+        <span class="faint" id="count"></span>
+        <button class="btn ghost small" id="zip" title="Download every note as a .txt file in a .zip"><svg class="i"><use href="#i-download"/></svg>ZIP</button>
+        <button class="btn ghost small" id="json" title="Download a JSON backup"><svg class="i"><use href="#i-download"/></svg>JSON</button>
+        <label class="btn ghost small" id="imp" title="Import a JSON backup"><svg class="i"><use href="#i-upload"/></svg>Import<input type="file" accept=".json,application/json" hidden></label>
+      </div>
+    </aside>
+
+    <section class="card editor">
+      <div class="row between ed-bar">
+        <span class="faint" id="saved">Saved</span>
+        <div class="row">
+          <button class="btn ghost small" id="pin" aria-pressed="false" title="Pin (Alt+P)">📌 Pin</button>
+          <button class="btn ghost small" id="copy" title="Copy note"><svg class="i"><use href="#i-copy"/></svg>Copy</button>
+          <button class="btn ghost small" id="txt" title="Download as .txt"><svg class="i"><use href="#i-download"/></svg>.txt</button>
+          <button class="btn ghost small danger" id="del" title="Delete note"><svg class="i"><use href="#i-trash"/></svg>Delete</button>
+        </div>
+      </div>
+      <label class="sr" for="text">Note text</label>
+      <textarea class="textarea prose" id="text" dir="auto" placeholder="Start typing. The first line becomes the title." spellcheck="true"></textarea>
+      <div class="row between mt">
+        <span class="faint" id="wc"></span>
+        <span class="faint keys"><kbd>Alt</kbd>+<kbd>N</kbd> new · <kbd>Ctrl</kbd>+<kbd>K</kbd> search · <kbd>Alt</kbd>+<kbd>↑</kbd><kbd>↓</kbd> switch · <kbd>Alt</kbd>+<kbd>P</kbd> pin</span>
+      </div>
+    </section>
+  </div>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
